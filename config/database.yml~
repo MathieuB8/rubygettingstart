@@ -10,12 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
-  username: masa
-  password: hunter
-  host: localhost
+  username: masa2
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: 
 
 development:
   <<: *default
@@ -26,7 +26,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: demo_test
+  database: madb
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: demo_production
-  username: demo
-  password: <%= ENV['DEMO_DATABASE_PASSWORD'] %>
+  database: madb
+  username: masa2
+  password: <%= ENV['DATABASE_PASSWORD'] %>

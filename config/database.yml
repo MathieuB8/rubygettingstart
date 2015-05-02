@@ -10,12 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
-  username: masa
-  password: hunter
-  host: localhost
+  username: masa2
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: 
 
 development:
   <<: *default
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: madb
-  username: demo
-  password: <%= ENV['DEMO_DATABASE_PASSWORD'] %>
+  username: masa2
+  password: <%= ENV['DATABASE_PASSWORD'] %>
